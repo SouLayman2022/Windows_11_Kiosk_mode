@@ -2,7 +2,7 @@
 # Guest Auto Reset Script (Dyafe - stable)
 # ======================================
 $GuestUser    = "Dyafe"
-$DaysInactive = 0
+$DaysInactive = 7
 $DefaultFiles = "C:\GuestDefaults"
 $LogFile      = "C:\Scripts\guest_reset_log.txt"
 
