@@ -159,13 +159,14 @@ Requires no manual intervention once configured.
 
 ## 🧠 Author Notes
 
-this scripts is 100% safe and dosen't have many lines, It was developed to automate guest account removale on Windows 11.
-It combines PowerShell automation with Windows Task Scheduler for a clean.
-I can see this used as a kiosk mode in many scenarios, such as:
-Cybercafés or gaming centers – quickly clear guest sessions to prevent leftover data from affecting new users.
+this scripts is 100% safe and dosen't have many lines, It was developed to automate guest account removale on Windows 11.</br>
+It combines PowerShell automation with Windows Task Scheduler for a clean huest account reset.</br>
+I can see this used as a kiosk mode in many scenarios, such as:</br>
+Cybercafés or gaming centers, to quickly clear guest sessions to prevent leftover data from affecting new users.
 
-Libraries or community centers – provide safe, standardized access for visitors without manual account maintenance.
+- Libraries or community centers – provide safe, standardized access for visitors without manual account maintenance.
 
-Shelters, schools, or public facilities – ensure sensitive information is not retained and accounts remain clean.
+- Shelters, schools, or public facilities – ensure sensitive information is not retained and accounts remain clean.
 
-Home guest accounts – maintain privacy and system cleanliness for family members or visitors, automatically removing inactive guest accounts after a defined period.
+- Home guest accounts – maintain privacy and system cleanliness for family members or visitors, automatically removing inactive guest accounts after a defined period.
+
