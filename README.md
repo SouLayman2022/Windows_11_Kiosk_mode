@@ -45,13 +45,13 @@ Every action and error is logged to C:\Scripts\guest_reset_log.txt.
 
     C:\
 
-├─ Scripts\</br>
-│ ├─ auto_reset_guest.ps1 # The main PowerShell script\</br>
-│ └─ guest_reset_log.txt # Activity log file (auto-generated)\</br>
-└─ GuestDefaults\ # Folder containing default files for new guest accounts\</br>
-├─ Desktop\\</br>
- ├─ Documents\\</br>
- └─ any other folders/files you want to copy\</br>
+├─ Scripts\ </br>
+│ ├─ auto_reset_guest.ps1 # The main PowerShell script\ </br>
+│ └─ guest_reset_log.txt # Activity log file (auto-generated)\ </br>
+└─ GuestDefaults\ # Folder containing default files for new guest accounts\ </br>
+├─ Desktop\\ </br>
+ ├─ Documents\\ </br>
+ └─ any other folders/files you want to copy\ </br>
 
 ## ⚡ Configuration
 
@@ -166,6 +166,7 @@ I can see this used as a kiosk mode in many scenarios, such as:</br>
 - gaming centers
 - Libraries...etc 
 to quickly clear guest sessions to prevent leftover data from affecting new users.
+
 
 
 
