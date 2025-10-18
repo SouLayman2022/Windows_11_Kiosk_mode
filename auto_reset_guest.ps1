@@ -1,5 +1,5 @@
 # ======================================
-# Guest Auto Reset Script (Dyafe - stable)
+# Guest Auto Reset Script (Dyafe - Final Stable)
 # ======================================
 $GuestUser    = "Dyafe"
 $DaysInactive = 7
@@ -65,14 +65,34 @@ try {
             Add-Content -Path $LogFile -Value "Error removing account: $($_.Exception.Message)"
         }
 
-        # Remove old profile folder
+        # =======================
+        # Improved folder deletion (final)
+        # =======================
         $guestProfile = "C:\Users\$GuestUser"
         if (Test-Path $guestProfile) {
-            try {
-                Remove-Item -Path $guestProfile -Recurse -Force -ErrorAction Stop
-                Add-Content -Path $LogFile -Value "Old profile folder deleted."
-            } catch {
-                Add-Content -Path $LogFile -Value "Failed to delete profile folder: $($_.Exception.Message)"
+            $deleted = $false
+            for ($i = 1; $i -le 5; $i++) {
+                try {
+                    Remove-Item -Path $guestProfile -Recurse -Force -ErrorAction Stop
+                    Add-Content -Path $LogFile -Value "Old profile folder deleted (attempt $i)."
+                    $deleted = $true
+                    break
+                } catch {
+                    Add-Content -Path $LogFile -Value "Attempt $i failed to delete profile folder: $($_.Exception.Message)"
+                    Start-Sleep -Seconds 5
+                }
+            }
+
+            if (-not $deleted) {
+                try {
+                    # Windows sometimes keeps profile handles locked.
+                    # Fallback: schedule a background CMD cleanup 1 minute later.
+                    $cmd = "cmd.exe /C timeout /t 60 & rd /s /q `"$guestProfile`""
+                    Start-Process -FilePath "cmd.exe" -ArgumentList "/C $cmd" -WindowStyle Hidden
+                    Add-Content -Path $LogFile -Value "Fallback CMD cleanup scheduled for locked profile."
+                } catch {
+                    Add-Content -Path $LogFile -Value "Failed to schedule CMD cleanup: $($_.Exception.Message)"
+                }
             }
         }
 
